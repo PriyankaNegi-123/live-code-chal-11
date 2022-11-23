@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live-code-chal-11</title>
+    <style>
+        body{
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #h{
+            font-size: 0.8rem;
+        }
+        .output{
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="h">Click below to know more powerful person</div>
+        <button id="btn">click</button>
+        <div class="output" id="output"></div>
+    </main>
+    <script>
+        const hEl = document.getElementById("h");
+        const btnEl = document.getElementById("btn");
+        const outputEl = document.getElementById("output");
+
+        let person1 = {
+            name: "Ram",
+            power: 2500,
+            yuga:  "Treta"
+        }
+        let person2 = {
+            name: "Krishna",
+            power: 2325,
+            yuga:  "dwapar"
+        }
+        
+        let person1Power = person1.name.length;
+        let person1Total = person1Power*35 + person1.power;
+
+        let person2Power = person2.name.length;
+        let person2Total = person2Power*35 + person2.power;
+
+        let ageFunc = function(){
+            if(person1Total < person2Total){
+                outputEl.innerText = ` ${person2.name} (${person2.name} has power=${person2Total} whereas ${person1.name} has power = ${person1Total})`; 
+            }else{
+                outputEl.innerText = `${person1.name} (${person1.name} has power = ${person1Total}whereas ${person2.name} has power = ${person2Total})`;
+            }
+        }
+
+    btnEl.addEventListener("click", ageFunc)
+    </script>
+</body>
+</html>
